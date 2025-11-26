@@ -1,5 +1,5 @@
 ## Atores: 
--Administrador do Sistema.
+- Administrador do Sistema.
 
 ## Pré-condição: 
 - Administrador logado
