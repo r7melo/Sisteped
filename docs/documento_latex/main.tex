@@ -1,0 +1,601 @@
+\documentclass{article}
+\usepackage[brazil]{babel}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{svg}
+\bibliographystyle{acm}
+\usepackage{float}
+\usepackage{url} 
+
+\title{AULA 01 - LATEX}
+\author{Romario Melo}
+\date{\year}
+
+\begin{document}
+
+
+
+
+% CRIAÇÃO DA PÁGINA DO DOCUMENTO ====================================
+\begin{titlepage}
+\centering
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.2\linewidth]{imagens/logo_ufc.png}
+\end{figure}
+
+{\textbf{UNIVERSIDADE FEDERAL DO CEARÁ \\ CIÊNCIA DA COMPUTAÇÃO}}
+
+\vspace{2.5cm}
+
+{\Large \textbf{PROJETO INTEGRADOR II}} \\
+{\large \textbf{Marco 1}}
+
+\vspace{1.5cm}
+
+{\large \textbf{Equipe 2 – Sisteped}}
+
+\vspace{1.5cm}
+
+{\textbf{Participantes:}} \\[0.3cm]
+{\normalsize
+    Klenisson Mateus Oliveira Ribeiro \\ 
+    Kauan Santana de Sousa \\
+    José Emanoel Alves Madureira \\
+    Francisco Diego Targino Sabino \\
+    Antonio Romario Carlos de Melo
+}
+
+\vspace{2cm}
+
+{\small Professor Orientador: Bruno Riccelli dos Santos Silva}
+
+\vfill
+{CRATEÚS \\ 2025}
+
+\end{titlepage}
+
+
+
+% CRIAÇÃO DO SUMÁRIO =================================================
+\tableofcontents
+
+% DOCUMENTO ================================
+\newpage
+
+%------------------------------------------------------
+\section{Introdução}
+O \textbf{Sisteped – Sistema de Gestão Pedagógica} é uma ferramenta construída para auxiliar professores no acompanhamento contínuo de alunos e turmas. O sistema centraliza notas, comportamentos, análises e relatórios, fornecendo uma visão clara e personalizada do desenvolvimento escolar, facilitando a tomada de decisões pedagógicas.
+
+Este documento apresenta os requisitos funcionais, não funcionais, diagramas e casos de uso do sistema.
+
+%------------------------------------------------------
+\section{Requisitos Funcionais}
+
+A seguir, os requisitos funcionais foram organizados por módulos, conforme a arquitetura proposta.
+
+%------------------------------------------------------
+\subsection{Módulo ALU – Alunos}
+
+\subsubsection*{ALU-01 – Cadastro de Alunos}
+\begin{itemize}
+    \item Adicionar, editar e remover alunos.
+    \item Armazenar informações básicas: nome, idade, turma e contato opcional.
+\end{itemize}
+
+\subsubsection*{ALU-02 – Histórico do Aluno}
+\begin{itemize}
+    \item Visualizar histórico consolidado de notas e comportamentos por aluno.
+\end{itemize}
+
+\subsubsection*{ALU-03 – Busca e Filtros de Alunos}
+\begin{itemize}
+    \item Buscar alunos por nome, turma ou tags de comportamento/desempenho.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Módulo TUR – Turmas}
+
+\subsubsection*{TUR-01 – Gerenciamento de Turmas}
+\begin{itemize}
+    \item Criar turmas personalizadas.
+    \item Adicionar ou remover alunos de cada turma.
+\end{itemize}
+
+\subsubsection*{TUR-02 – Visão Geral da Turma}
+\begin{itemize}
+    \item Exibir resumo de desempenho médio da turma.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Módulo NOT – Notas}
+
+\subsubsection*{NOT-01 – Registro de Notas}
+\begin{itemize}
+    \item Lançar notas individuais.
+    \item Adicionar tags de conteúdo ou competência.
+    \item Visualizar histórico por aluno ou turma.
+\end{itemize}
+
+\subsubsection*{NOT-02 – Média e Estatísticas}
+\begin{itemize}
+    \item Calcular média por conteúdo, aluno e turma.
+\end{itemize}
+
+\subsubsection*{NOT-03 – Notas por Conteúdo}
+\begin{itemize}
+    \item Filtrar notas por matéria, conteúdo ou competência.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Módulo COM – Comportamentos}
+
+\subsubsection*{COM-01 – Registro de Comportamentos}
+\begin{itemize}
+    \item Criar cards de comportamento.
+    \item Associar comportamentos a alunos.
+    \item Registrar histórico individual e por turma.
+\end{itemize}
+
+\subsubsection*{COM-02 – Métricas de Frequência}
+\begin{itemize}
+    \item Identificar padrões de comportamentos positivos e negativos.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Módulo MON – Monitoramento e Análises}
+
+\subsubsection*{MON-01 – Análises Acadêmicas}
+\begin{itemize}
+    \item Exibir gráficos e indicadores de desempenho.
+\end{itemize}
+
+\subsubsection*{MON-02 – Análises Comportamentais}
+\begin{itemize}
+    \item Análise de frequência por tipo de comportamento.
+\end{itemize}
+
+\subsubsection*{MON-03 – Comparação Temporal}
+\begin{itemize}
+    \item Comparação da evolução dos alunos ao longo do tempo.
+\end{itemize}
+
+\subsubsection*{MON-04 – Painel Geral do Professor}
+\begin{itemize}
+    \item Dashboard consolidado com visão de turmas, notas e alertas.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Módulo REL – Relatórios}
+
+\subsubsection*{REL-01 – Exportação e Relatórios}
+\begin{itemize}
+    \item Gerar relatórios para impressão ou compartilhamento.
+    \item Exportar para CSV ou PDF.
+\end{itemize}
+
+\subsubsection*{REL-02 – Relatório Consolidado da Turma}
+\begin{itemize}
+    \item Documento com médias, estatísticas e análises comportamentais.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Módulo SYS – Sistema / Infraestrutura}
+
+\subsubsection*{SYS-01 – Armazenamento Local}
+\begin{itemize}
+    \item Banco de dados local com suporte a modo offline.
+\end{itemize}
+
+\subsubsection*{SYS-02 – Backup Local Manual}
+\begin{itemize}
+    \item Exportar e importar backups do banco.
+\end{itemize}
+
+\subsubsection*{SYS-03 – Tema Claro/Escuro}
+\begin{itemize}
+    \item Alternar entre temas para melhor usabilidade.
+\end{itemize}
+
+%------------------------------------------------------
+\section{Requisitos Não Funcionais}
+
+\subsection*{1. Usabilidade}
+\begin{itemize}
+    \item Ações principais em até 5 segundos.
+    \item Localização de funções em até 3 cliques.
+\end{itemize}
+
+\subsection*{2. Performance}
+\begin{itemize}
+    \item CRUD com resposta inferior a 200ms.
+    \item Filtros carregando em até 1s com 300+ alunos.
+\end{itemize}
+
+\subsection*{3. Segurança}
+\begin{itemize}
+    \item Armazenamento com criptografia AES-256.
+    \item Backup íntegro em 100\% das tentativas.
+\end{itemize}
+
+\subsection*{4. Portabilidade}
+\begin{itemize}
+    \item Compatível com Windows, Linux e macOS.
+    \item Suporte a telas de 768px a 4K.
+\end{itemize}
+
+\subsection*{5. Escalabilidade}
+\begin{itemize}
+    \item Impacto máximo de 10\% ao adicionar novos módulos.
+    \item Suporte a até 10 mil registros sem perda notável.
+\end{itemize}
+
+%------------------------------------------------------
+\newpage
+\section{Diagramas}
+
+\subsection{Diagrama de Classes}
+\begin{figure}[H]
+    \centering
+    \includesvg[width=\textwidth]{imagens/Diagram de Classes - Sisteped.svg}
+    \caption{Diagrama de Classes do Sisteped}
+\end{figure}
+
+
+
+
+\subsection{Casos de Uso}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagens/use cases.png}
+    \caption{Diagrama de Caso de Uso}
+    \label{fig:casosdeuso}
+\end{figure}
+
+
+
+%======================================================
+\newpage
+\section{Casos de Uso}
+
+Esta seção descreve os principais casos de uso do sistema Sisteped, apresentando atores envolvidos, pré-condições, fluxos, pós-condições e possíveis variações para cada cenário. O objetivo é documentar claramente o comportamento esperado do sistema.
+
+\subsection{Efetuar Login}
+
+\subsubsection*{Atores}
+\begin{itemize}
+    \item Professor
+    \item Administrador
+\end{itemize}
+
+\subsubsection*{Pré-condição}
+\begin{itemize}
+    \item O ator deve possuir um registro válido de email e senha.
+\end{itemize}
+
+\subsubsection*{Fluxo Principal}
+\begin{enumerate}
+    \item O ator acessa a página de login.
+    \item O sistema exibe os campos para credenciais.
+    \item O ator insere email e senha.
+    \item O ator clica em “Entrar”.
+    \item O sistema valida as credenciais.
+    \item O sistema concede acesso e redireciona para o dashboard.
+\end{enumerate}
+
+\subsubsection*{Pós-condição}
+\begin{itemize}
+    \item O ator está autenticado no sistema.
+\end{itemize}
+
+\subsubsection*{Fluxo Alternativo}
+\begin{itemize}
+    \item Credenciais inválidas resultam em mensagem de erro.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Cadastrar Aluno}
+
+\subsubsection*{Atores}
+\begin{itemize}
+    \item Professor
+\end{itemize}
+
+\subsubsection*{Pré-condição}
+\begin{itemize}
+    \item O professor deve ter acesso ao menu “Alunos”.
+\end{itemize}
+
+\subsubsection*{Fluxo Principal}
+\begin{enumerate}
+    \item O professor acessa o menu Alunos.
+    \item Seleciona “Adicionar Aluno”.
+    \item Preenche os dados: nome, idade, turma, contato.
+    \item Confirma o cadastro.
+    \item O sistema salva o registro no banco local.
+\end{enumerate}
+
+\subsubsection*{Pós-condição}
+\begin{itemize}
+    \item O aluno é cadastrado no sistema.
+\end{itemize}
+
+\subsubsection*{Fluxo Alternativo}
+\begin{itemize}
+    \item O professor pode realizar o backup manual após o cadastro.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Gerenciar Dados Cadastrais da Turma}
+
+\subsubsection*{Atores}
+\begin{itemize}
+    \item Administrador
+\end{itemize}
+
+\subsubsection*{Pré-condição}
+\begin{itemize}
+    \item Administrador logado.
+    \item Classes Turma, Aluno e Professor existentes.
+\end{itemize}
+
+\subsubsection*{Fluxo Principal}
+\begin{enumerate}
+    \item O administrador seleciona a turma desejada.
+    \item Adiciona ou remove alunos da turma.
+    \item Associa ou remove professores da turma.
+    \item O sistema atualiza os relacionamentos.
+\end{enumerate}
+
+\subsubsection*{Pós-condição}
+\begin{itemize}
+    \item A composição da turma é atualizada.
+\end{itemize}
+
+\subsubsection*{Fluxo Alternativo}
+\begin{itemize}
+    \item O sistema impede alterações caso haja pendências (ex.: notas não lançadas).
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Registrar e Gerenciar Notas}
+
+\subsubsection*{Atores}
+\begin{itemize}
+    \item Professor
+\end{itemize}
+
+\subsubsection*{Pré-condição}
+\begin{itemize}
+    \item Professor logado.
+    \item Turma, Aluno e Avaliação previamente cadastrados.
+\end{itemize}
+
+\subsubsection*{Fluxo Principal}
+\begin{enumerate}
+    \item O professor seleciona a turma.
+    \item Seleciona ou cria a avaliação.
+    \item Insere notas (float) para cada aluno.
+    \item O sistema armazena as notas.
+\end{enumerate}
+
+\subsubsection*{Pós-condição}
+\begin{itemize}
+    \item As notas da avaliação são registradas.
+\end{itemize}
+
+\subsubsection*{Fluxo Alternativo}
+\begin{itemize}
+    \item Notas inválidas resultam em erro e solicitação de correção.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Registrar Incidente de Comportamento}
+
+\subsubsection*{Atores}
+\begin{itemize}
+    \item Professor
+\end{itemize}
+
+\subsubsection*{Pré-condição}
+\begin{itemize}
+    \item Professor logado.
+    \item Aluno selecionado.
+\end{itemize}
+
+\subsubsection*{Fluxo Principal}
+\begin{enumerate}
+    \item O professor abre a função de Registro de Comportamento.
+    \item Seleciona o aluno.
+    \item Preenche tag, data e observação.
+    \item O sistema cria o registro de comportamento.
+\end{enumerate}
+
+\subsubsection*{Pós-condição}
+\begin{itemize}
+    \item O incidente é armazenado e associado ao aluno.
+\end{itemize}
+
+\subsubsection*{Fluxo Alternativo}
+\begin{itemize}
+    \item Tentativa inválida gera mensagem de erro.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Calcular Médias e Estatísticas}
+
+\subsubsection*{Atores}
+\begin{itemize}
+    \item Professor
+\end{itemize}
+
+\subsubsection*{Pré-condição}
+\begin{itemize}
+    \item Existem notas registradas.
+\end{itemize}
+
+\subsubsection*{Fluxo Principal}
+\begin{enumerate}
+    \item O professor acessa a tela de estatísticas.
+    \item O sistema calcula as médias automaticamente.
+    \item O sistema exibe os resultados.
+\end{enumerate}
+
+\subsubsection*{Pós-condição}
+\begin{itemize}
+    \item Estatísticas exibidas com sucesso.
+\end{itemize}
+
+\subsubsection*{Fluxo Alternativo}
+\begin{itemize}
+    \item Caso não existam notas, o sistema exibe mensagem de erro.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Analisar Desempenho e Comportamentos}
+
+\subsubsection*{Atores}
+\begin{itemize}
+    \item Professor
+    \item Coordenador
+\end{itemize}
+
+\subsubsection*{Pré-condição}
+\begin{itemize}
+    \item Usuário acessa o painel de análises.
+\end{itemize}
+
+\subsubsection*{Fluxo Principal}
+\begin{enumerate}
+    \item Usuário seleciona filtros (aluno, turma, conteúdo).
+    \item O sistema gera gráficos e indicadores.
+    \item Usuário revisa as informações exibidas.
+\end{enumerate}
+
+\subsubsection*{Pós-condição}
+\begin{itemize}
+    \item Indicadores são exibidos.
+\end{itemize}
+
+\subsubsection*{Fluxo Alternativo}
+\begin{itemize}
+    \item Usuário pode adicionar novo comportamento durante a análise.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Consultar Histórico Escolar e Desempenho}
+
+\subsubsection*{Atores}
+\begin{itemize}
+    \item Aluno
+\end{itemize}
+
+\subsubsection*{Pré-condição}
+\begin{itemize}
+    \item Aluno logado.
+\end{itemize}
+
+\subsubsection*{Fluxo Principal}
+\begin{enumerate}
+    \item O aluno solicita a consulta do histórico.
+    \item O sistema recupera registros de Avaliação e Comportamento.
+    \item O sistema exibe notas, datas e observações.
+\end{enumerate}
+
+\subsubsection*{Pós-condição}
+\begin{itemize}
+    \item Histórico completo é exibido.
+\end{itemize}
+
+\subsubsection*{Fluxo Alternativo}
+\begin{itemize}
+    \item Se não houver registros, exibir “Nenhum registro encontrado”.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{UC09 – Gerar Backup Manual}
+
+\subsubsection*{Atores}
+\begin{itemize}
+    \item Professor
+\end{itemize}
+
+\subsubsection*{Pré-condição}
+\begin{itemize}
+    \item Sistema possui dados armazenados.
+\end{itemize}
+
+\subsubsection*{Fluxo Principal}
+\begin{enumerate}
+    \item O professor abre as configurações.
+    \item Seleciona “Gerar Backup”.
+    \item O sistema compacta o banco local.
+    \item O usuário salva o arquivo.
+\end{enumerate}
+
+\subsubsection*{Pós-condição}
+\begin{itemize}
+    \item Arquivo de backup gerado.
+\end{itemize}
+
+\subsubsection*{Fluxo Alternativo}
+\begin{itemize}
+    \item Backup sem alterações pode gerar arquivo inconsistente.
+\end{itemize}
+
+%======================================================
+\newpage
+\section{Repositório e Protótipo do Sistema}
+
+Esta seção apresenta os artefatos digitais essenciais para o desenvolvimento do Sisteped, incluindo o repositório oficial do código-fonte e o protótipo elaborado no Figma.
+
+%------------------------------------------------------
+\subsection{Repositório no GitHub}
+
+O código-fonte do Sisteped está disponível publicamente no GitHub, permitindo versionamento, colaboração e auditoria do desenvolvimento:
+
+\begin{itemize}
+    \item \textbf{Repositório oficial:}\\
+    \url{https://github.com/r7melo/Sisteped}
+\end{itemize}
+
+O repositório contém:
+\begin{itemize}
+    \item Estrutura completa do projeto;
+    \item Código-fonte de desenvolvimento inicial;
+    \item Documentações complementares.
+\end{itemize}
+
+%------------------------------------------------------
+\subsection{Protótipo}
+
+O protótipo de interface do usuário foi desenvolvido no Figma com o objetivo de validar a experiência de uso e definir os fluxos principais antes da implementação. Ele pode ser acessado por meio do link:
+
+\begin{itemize}
+    \item \textbf{Protótipo no Figma:}
+    \url{https://www.figma.com/design/WE4tHmzitXWEictT3dCRfe/Sisteped?node-id=0-1\&p=f}
+\end{itemize}
+
+O protótipo apresenta as principais telas funcionais do sistema, incluindo:
+
+\begin{itemize}
+    \item Tela de Login;
+    \item Listagem de Turmas;
+    \item Listagem de Alunos;
+    \item Listagem de Notas;
+    \item Telas de Gráficos de Desempenho;
+    \item Tela de Relatórios;
+    \item Cadastro de Turmas;
+    \item Cadastro de Aluno;
+    \item Cadastro de Notas;
+    \item Geração de Relatórios.
+\end{itemize}
+
+Essas telas representam o fluxo essencial do Sisteped e servem como referência visual para orientar o desenvolvimento da interface final do sistema.
+
+
+
+
+\end{document}
+
