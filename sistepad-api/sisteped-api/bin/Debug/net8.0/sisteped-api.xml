@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>sisteped-api</name>
+    </assembly>
+    <members>
+        <member name="T:chronovault_api.Controllers.UserController">
+            <summary>
+            Controller responsável pelo gerenciamento de usuários.
+            </summary>
+        </member>
+        <member name="M:chronovault_api.Controllers.UserController.#ctor(chronovault_api.Services.Interfaces.IUserService,chronovault_api.Services.Interfaces.IJwtService,FluentValidation.IValidator{chronovault_api.DTOs.Request.UserCreateDTO},FluentValidation.IValidator{chronovault_api.DTOs.Request.UserCredentialDTO})">
+            <summary>
+            Construtor do UserController.
+            </summary>
+        </member>
+        <member name="M:chronovault_api.Controllers.UserController.GetById(System.Int32)">
+            <summary>
+            Obtém um usuário pelo ID.
+            </summary>
+            <param name="id">ID do usuário.</param>
+            <returns>Usuário encontrado ou NotFound.</returns>
+            <response code="200">Usuário encontrado.</response>
+            <response code="404">Usuário não encontrado.</response>
+        </member>
+        <member name="M:chronovault_api.Controllers.UserController.GetAll">
+            <summary>
+            Obtém todos os usuários.
+            </summary>
+            <returns>Lista de usuários.</returns>
+            <response code="200">Lista de usuários retornada.</response>
+        </member>
+        <member name="M:chronovault_api.Controllers.UserController.Create(chronovault_api.DTOs.Request.UserCreateDTO)">
+            <summary>
+            Cria um novo usuário.
+            </summary>
+            <param name="dto">Dados para criação do usuário.</param>
+            <returns>Usuário criado.</returns>
+            <response code="201">Usuário criado com sucesso.</response>
+            <response code="400">Dados inválidos ou erro na criação.</response>
+        </member>
+        <member name="M:chronovault_api.Controllers.UserController.Login(chronovault_api.DTOs.Request.UserCredentialDTO)">
+            <summary>
+            Realiza login do usuário.
+            </summary>
+            <param name="dto">Credenciais do usuário.</param>
+            <returns>Ok se login for bem-sucedido, Unauthorized se falhar.</returns>
+            <response code="200">Login realizado com sucesso.</response>
+            <response code="400">Dados inválidos.</response>
+            <response code="401">Credenciais inválidas.</response>
+        </member>
+        <member name="T:chronovault_api.Migrations.implementingauthmodule">
+            <inheritdoc />
+        </member>
+        <member name="M:chronovault_api.Migrations.implementingauthmodule.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:chronovault_api.Migrations.implementingauthmodule.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:chronovault_api.Migrations.implementingauthmodule.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
