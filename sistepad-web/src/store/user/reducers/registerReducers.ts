@@ -8,7 +8,7 @@ export const registerReducers = (builder : ActionReducerMapBuilder<UserState>) =
         state.loading = true;
         state.error = null;
     })
-    .addCase(registerUserAction.fulfilled, (state) => {
+    .addCase(registerUserAction.fulfilled, (state, action) => {
         state.loading = false;
         state.successRegister = true;
         state.error = null;

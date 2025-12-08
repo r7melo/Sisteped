@@ -6,8 +6,8 @@ export const resetReducers = (builder : ActionReducerMapBuilder<UserState>) =>{
     builder
     .addCase(resetUserStateAction.pending, (state) => {
         state.error = null;
-        state.successLogin = false;
-        state.successRegister = false;
+        state.successLogin = undefined;
+        state.successRegister = undefined;
         state.loading = false;
         state.user = null;
     });

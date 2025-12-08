@@ -1,5 +1,5 @@
 import "./login.style.css";
-import { useEffect, type ReactElement } from "react";
+import { useEffect, useRef, type ReactElement } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { FormField } from "@/components";
@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { loginAction } from "@/store/user/actions/login";
 import { toast } from "react-toastify";
 import { resetUserStateAction } from "@/store/user/actions/reset";
+
 type LoginForm = {
   login: string;
   password: string;
@@ -21,7 +22,7 @@ export function Login(): ReactElement {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const { loading, successLogin, error } = useSelector(
+  const { successLogin, error } = useSelector(
     (state: RootState) => state.user
   );
 
@@ -39,15 +40,24 @@ export function Login(): ReactElement {
       })
     );
   };
-  useEffect(() => {
-    dispatch(resetUserStateAction());
-  }, []);
 
   useEffect(() => {
+    dispatch(resetUserStateAction());
+  }, [dispatch]);
+
+  const isFirstRun = useRef(true);
+  useEffect(() => {
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+      return;
+    }
+
     if (successLogin) {
       toast.success("Login realizado com sucesso!");
       navigate("/classes");
-    } else if (error) toast.error(error);
+    } else if (error && successLogin === false) {
+      toast.error(error);
+    }
   }, [successLogin, error, navigate]);
 
   return (

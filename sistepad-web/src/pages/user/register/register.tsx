@@ -1,4 +1,4 @@
-import { type ReactElement, useEffect } from "react";
+import { type ReactElement, useEffect, useRef } from "react";
 import "./register.style.css";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +11,7 @@ import { FormField } from "@/components";
 import { registerUserAction } from "@/store/user/actions/register";
 import { emailRegex } from "@/utils/appRegex";
 import { toast } from "react-toastify";
+import { resetUserStateAction } from "@/store/user/actions/reset";
 
 type RegisterForm = {
   name: string;
@@ -41,9 +42,23 @@ export function Register(): ReactElement {
   };
 
   useEffect(() => {
-    if (userState.successRegister) navigate("/");
-    else if (userState.error) toast.error(userState.error);
-  }, [userState]);
+    dispatch(resetUserStateAction());
+  }, [dispatch]);
+
+  const isFirstRun = useRef(true);
+  useEffect(() => {
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+      return;
+    }
+
+    if (userState.successRegister) {
+      dispatch(resetUserStateAction());
+      navigate("/");
+    } else if (userState.error && userState.successRegister === false) {
+      toast.error(userState.error);
+    }
+  }, [userState.successRegister, userState.error, navigate, dispatch]);
 
   return (
     <div className="login-page">
