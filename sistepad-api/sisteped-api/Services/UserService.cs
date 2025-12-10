@@ -4,6 +4,7 @@ using SistepedApi.DTOs.Request;
 using SistepedApi.DTOs.Response;
 using SistepedApi.Models;
 using SistepedApi.Services.Interfaces;
+using SistepedApi.Resources;
 
 namespace SistepedApi.Services
 {
@@ -35,6 +36,13 @@ namespace SistepedApi.Services
 
         public async Task<UserResponseDTO?> CreateAsync(UserCreateDTO dto)
         {
+            var existingUser = await _userRepository.GetByEmailAsync(dto.Email);
+
+            if (existingUser != null)
+            {
+                throw new Exception(ErrorMessages.EXC001);
+            }
+
             var user = _mapper.Map<User>(dto);
 
             var passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
