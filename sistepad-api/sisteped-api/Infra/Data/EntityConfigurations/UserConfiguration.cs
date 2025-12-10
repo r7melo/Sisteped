@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using chronovault_api.Models;
+using SistepedApi.Models;
 
 public class UserConfiguration : IEntityTypeConfiguration<User>
 {

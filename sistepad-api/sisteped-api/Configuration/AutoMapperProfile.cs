@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using chronovault_api.DTOs.Request;
-using chronovault_api.DTOs.Response;
-using chronovault_api.Models;
+using SistepedApi.DTOs.Request;
+using SistepedApi.DTOs.Response;
+using SistepedApi.Models;
 
-namespace chronovault_api.Configuration
+namespace SistepedApi.Configuration
 {
     public class AutoMapperProfile : Profile
     {

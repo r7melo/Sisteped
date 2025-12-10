@@ -1,9 +1,9 @@
 ﻿using System.Text.RegularExpressions;
-using chronovault_api.DTOs.Request;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using SistepedApi.DTOs.Request;
 
-namespace chronovault_api.Validators
+namespace SistepedApi.Validators
 {
     public class UserCreateDTOValidator : AbstractValidator<UserCreateDTO>
     {

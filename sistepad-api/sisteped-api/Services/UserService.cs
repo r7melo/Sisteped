@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using chronovault_api.Models;
-using chronovault_api.Repositories.Interfaces;
-using chronovault_api.Services.Interfaces;
-using chronovault_api.DTOs.Request;
-using chronovault_api.DTOs.Response;
+using SistepedApi.Repositories.Interfaces;
+using SistepedApi.DTOs.Request;
+using SistepedApi.DTOs.Response;
+using SistepedApi.Models;
+using SistepedApi.Services.Interfaces;
 
-namespace chronovault_api.Services
+namespace SistepedApi.Services
 {
     public class UserService : IUserService
     {

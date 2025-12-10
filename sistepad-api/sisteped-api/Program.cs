@@ -1,4 +1,4 @@
-using chronovault_api.IoC;
+using SistepedApi.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 

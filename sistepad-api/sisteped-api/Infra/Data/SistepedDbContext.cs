@@ -1,10 +1,11 @@
-﻿using chronovault_api.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using SistepedApi.Models;
 
-namespace chronovault_api.Infra.Data
+namespace SistepedApi.Infra.Data
 {
-    public class SistepedDbContext : DbContext {
+    public class SistepedDbContext : DbContext
+    {
         public SistepedDbContext(DbContextOptions<SistepedDbContext> options) : base(options)
         {
         }

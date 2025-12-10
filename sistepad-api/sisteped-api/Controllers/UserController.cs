@@ -1,12 +1,12 @@
-﻿using chronovault_api.DTOs.Request;
-using chronovault_api.DTOs.Response;
-using chronovault_api.Services.Interfaces;
-using FluentValidation;
+﻿using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SistepedApi.DTOs.Request;
+using SistepedApi.DTOs.Response;
+using SistepedApi.Services.Interfaces;
 using System.Net;
 
-namespace chronovault_api.Controllers
+namespace SistepedApi.Controllers
 {
     /// <summary>
     /// Controller responsável pelo gerenciamento de usuários.

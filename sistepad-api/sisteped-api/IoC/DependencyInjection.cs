@@ -1,18 +1,18 @@
-﻿using chronovault_api.Infra.Data;
-using chronovault_api.Repositories.Interfaces;
-using chronovault_api.Repositories;
-using chronovault_api.Services.Interfaces;
-using chronovault_api.Services;
-using chronovault_api.Configuration;
-using FluentValidation;
+﻿using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text;
+using SistepedApi.Repositories.Interfaces;
+using SistepedApi.Configuration;
+using SistepedApi.Services.Interfaces;
+using SistepedApi.Infra.Data;
+using SistepedApi.Repositories;
+using SistepedApi.Services;
 
-namespace chronovault_api.IoC
+namespace SistepedApi.IoC
 {
     public static class DependencyInjection
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using chronovault_api.Models;
-using chronovault_api.Repositories.Interfaces;
-using chronovault_api.Infra.Data;
+using SistepedApi.Models;
+using SistepedApi.Repositories.Interfaces;
+using SistepedApi.Infra.Data;
 
-namespace chronovault_api.Repositories
+namespace SistepedApi.Repositories
 {
     public class UserRepository : IUserRepository
     {
