@@ -1,8 +1,9 @@
-﻿using chronovault_api.DTOs.Request;
-using chronovault_api.DTOs.Response;
+﻿using SistepedApi.DTOs.Request;
+using SistepedApi.DTOs.Response;
 
-namespace chronovault_api.Services.Interfaces
-{    public interface IUserService
+namespace SistepedApi.Services.Interfaces
+{
+    public interface IUserService
     {
         Task<UserResponseDTO> GetByIdAsync(int id);
         Task<IEnumerable<UserResponseDTO>> GetAllAsync();

@@ -1,6 +1,6 @@
-﻿using chronovault_api.Models;
+﻿using SistepedApi.Models;
 
-namespace chronovault_api.Repositories.Interfaces
+namespace SistepedApi.Repositories.Interfaces
 {
     public interface IUserRepository
     {

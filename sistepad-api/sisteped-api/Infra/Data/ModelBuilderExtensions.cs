@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace chronovault_api.Infra.Data
+namespace SistepedApi.Infra.Data
 {
     public static class ModelBuilderExtensions
     {

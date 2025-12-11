@@ -1,12 +1,13 @@
-﻿using chronovault_api.DTOs.Request;
-using chronovault_api.DTOs.Response;
-using chronovault_api.Services.Interfaces;
-using FluentValidation;
+﻿using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SistepedApi.DTOs.Request;
+using SistepedApi.DTOs.Response;
+using SistepedApi.Resources;
+using SistepedApi.Services.Interfaces;
 using System.Net;
 
-namespace chronovault_api.Controllers
+namespace SistepedApi.Controllers
 {
     /// <summary>
     /// Controller responsável pelo gerenciamento de usuários.
@@ -85,7 +86,7 @@ namespace chronovault_api.Controllers
                 return BadRequest(validation.Errors);
 
             var created = await _userService.CreateAsync(dto);
-            if (created == null) return BadRequest("Could not create user.");
+            if (created == null) return BadRequest(ErrorMessages.EXC002);
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
 
@@ -109,7 +110,7 @@ namespace chronovault_api.Controllers
                 return BadRequest(validation.Errors);
 
             var authReturn = await _jwtService.GenerateToken(dto);
-            if (string.IsNullOrEmpty(authReturn.Token)) return Unauthorized("Credenciais inválidas.");
+            if (string.IsNullOrEmpty(authReturn.Token)) return Unauthorized(ErrorMessages.EXC003);
 
             return Ok(authReturn);
         }

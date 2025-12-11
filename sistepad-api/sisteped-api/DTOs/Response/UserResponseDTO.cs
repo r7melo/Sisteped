@@ -1,4 +1,4 @@
-﻿namespace chronovault_api.DTOs.Response
+﻿namespace SistepedApi.DTOs.Response
 {
     public class UserResponseDTO
     {

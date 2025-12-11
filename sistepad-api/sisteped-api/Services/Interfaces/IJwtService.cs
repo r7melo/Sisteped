@@ -1,9 +1,7 @@
-﻿using chronovault_api.DTOs.Request;
-using chronovault_api.DTOs.Response;
-using chronovault_api.Models;
-using System.Security.Claims;
+﻿using SistepedApi.DTOs.Request;
+using SistepedApi.DTOs.Response;
 
-namespace chronovault_api.Services.Interfaces
+namespace SistepedApi.Services.Interfaces
 {
     public interface IJwtService
     {

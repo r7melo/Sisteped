@@ -1,4 +1,4 @@
-﻿namespace chronovault_api.DTOs.Request
+﻿namespace SistepedApi.DTOs.Request
 {
     public class UserCreateDTO
     {

@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using chronovault_api.Infra.Data;
+using SistepedApi.Infra.Data;
 
 #nullable disable
 

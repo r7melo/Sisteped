@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
-using chronovault_api.DTOs.Request;
-using chronovault_api.DTOs.Response;
-using chronovault_api.Repositories.Interfaces;
-using chronovault_api.Services.Interfaces;
 using Microsoft.IdentityModel.Tokens;
+using SistepedApi.DTOs.Request;
+using SistepedApi.DTOs.Response;
+using SistepedApi.Repositories.Interfaces;
+using SistepedApi.Services.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace chronovault_api.Services
+namespace SistepedApi.Services
 {
     public class JwtService : IJwtService
     {
@@ -40,7 +40,7 @@ namespace chronovault_api.Services
             if (registeredCredential == null) return new AuthResponseDTO();
 
             var validPassword = BCrypt.Net.BCrypt.Verify(userCredentials.Password, registeredCredential.PasswordHash);
-            if (!validPassword) return new AuthResponseDTO(); 
+            if (!validPassword) return new AuthResponseDTO();
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

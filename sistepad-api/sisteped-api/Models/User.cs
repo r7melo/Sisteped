@@ -1,4 +1,4 @@
-﻿namespace chronovault_api.Models
+﻿namespace SistepedApi.Models
 {
     public class User
     {

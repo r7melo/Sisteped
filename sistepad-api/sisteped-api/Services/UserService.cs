@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
-using chronovault_api.Models;
-using chronovault_api.Repositories.Interfaces;
-using chronovault_api.Services.Interfaces;
-using chronovault_api.DTOs.Request;
-using chronovault_api.DTOs.Response;
+using SistepedApi.Repositories.Interfaces;
+using SistepedApi.DTOs.Request;
+using SistepedApi.DTOs.Response;
+using SistepedApi.Models;
+using SistepedApi.Services.Interfaces;
+using SistepedApi.Resources;
 
-namespace chronovault_api.Services
+namespace SistepedApi.Services
 {
     public class UserService : IUserService
     {
@@ -35,6 +36,13 @@ namespace chronovault_api.Services
 
         public async Task<UserResponseDTO?> CreateAsync(UserCreateDTO dto)
         {
+            var existingUser = await _userRepository.GetByEmailAsync(dto.Email);
+
+            if (existingUser != null)
+            {
+                throw new Exception(ErrorMessages.EXC001);
+            }
+
             var user = _mapper.Map<User>(dto);
 
             var passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);

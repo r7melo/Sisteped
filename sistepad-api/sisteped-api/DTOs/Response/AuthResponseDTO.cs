@@ -1,8 +1,8 @@
-﻿namespace chronovault_api.DTOs.Response
+﻿namespace SistepedApi.DTOs.Response
 {
     public class AuthResponseDTO
     {
         public string Token { get; set; }
-        public UserResponseDTO User { get; set; }    
+        public UserResponseDTO User { get; set; }
     }
 }
